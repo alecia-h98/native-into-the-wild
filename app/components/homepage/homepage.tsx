@@ -11,7 +11,8 @@ export default function Homepage() {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <Text>Homepage</Text>
+        {/*Insert the user's name at the end of the welcome message*/}
+      <Text>Welcome back!</Text>
     </View>
   );
 }

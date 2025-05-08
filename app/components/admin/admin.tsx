@@ -11,7 +11,7 @@ export default function Admin() {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <Text>Admin</Text>
+      <Text>Welcome back admin!</Text>
     </View>
   );
 }

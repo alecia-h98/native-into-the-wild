@@ -11,7 +11,7 @@ export default function RegisterPage() {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <Text>RegisterPage</Text>
+      <Text>Register</Text>
     </View>
   );
 }

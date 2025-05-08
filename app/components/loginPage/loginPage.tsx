@@ -11,7 +11,7 @@ export default function LoginPage() {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <Text>LoginPage</Text>
+      <Text>Login</Text>
     </View>
   );
 }
