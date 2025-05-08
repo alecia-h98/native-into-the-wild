@@ -24,8 +24,7 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-      }}
-    >
+      }}>
       <Text>Into The Wild</Text>
     </View>
   );
