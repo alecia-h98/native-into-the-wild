@@ -72,7 +72,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const verifyToken = require('../middleware/auth');
+// const verifyToken = require('../middleware/auth');
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret';
