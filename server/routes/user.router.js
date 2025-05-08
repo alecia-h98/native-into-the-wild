@@ -68,55 +68,61 @@
 
 // module.exports = router;
 
-const express = require('express');
-const pool = require('../modules/pool');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
-// const verifyToken = require('../middleware/auth');
 
-const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret';
 
-// Register
-router.post('/register', async (req, res) => {
-  const { username, password, name } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
 
-  try {
-    await pool.query(
-      `INSERT INTO "user" ("username", "password", "name") VALUES ($1, $2, $3)`,
-      [username, hashedPassword, name]
-    );
-    res.sendStatus(201);
-  } catch (err) {
-    console.error('Register error:', err);
-    res.sendStatus(500);
-  }
-});
+//***********NEW CODE */
 
-// Login
-router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
 
-  try {
-    const result = await pool.query(`SELECT * FROM "user" WHERE "username" = $1`, [username]);
-    const user = result.rows[0];
-    if (!user) return res.status(401).send('User not found');
+// const express = require('express');
+// const pool = require('../modules/pool');
+// const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcrypt');
+// // const verifyToken = require('../middleware/auth');
 
-    const isValid = await bcrypt.compare(password, user.password);
-    if (!isValid) return res.status(401).send('Invalid credentials');
+// const router = express.Router();
+// const JWT_SECRET = process.env.JWT_SECRET || 'your-secret';
 
-    const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
-    res.json({ token });
-  } catch (err) {
-    console.error('Login error:', err);
-    res.sendStatus(500);
-  }
-});
+// // Register
+// router.post('/register', async (req, res) => {
+//   const { username, password, name } = req.body;
+//   const hashedPassword = await bcrypt.hash(password, 10);
 
-// Example protected route
-router.get('/profile', verifyToken, (req, res) => {
-  res.json({ message: `Hello, ${req.user.username}` });
-});
+//   try {
+//     await pool.query(
+//       `INSERT INTO "user" ("username", "password", "name") VALUES ($1, $2, $3)`,
+//       [username, hashedPassword, name]
+//     );
+//     res.sendStatus(201);
+//   } catch (err) {
+//     console.error('Register error:', err);
+//     res.sendStatus(500);
+//   }
+// });
 
-module.exports = router;
+// // Login
+// router.post('/login', async (req, res) => {
+//   const { username, password } = req.body;
+
+//   try {
+//     const result = await pool.query(`SELECT * FROM "user" WHERE "username" = $1`, [username]);
+//     const user = result.rows[0];
+//     if (!user) return res.status(401).send('User not found');
+
+//     const isValid = await bcrypt.compare(password, user.password);
+//     if (!isValid) return res.status(401).send('Invalid credentials');
+
+//     const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '7d' });
+//     res.json({ token });
+//   } catch (err) {
+//     console.error('Login error:', err);
+//     res.sendStatus(500);
+//   }
+// });
+
+// // Example protected route
+// router.get('/profile', verifyToken, (req, res) => {
+//   res.json({ message: `Hello, ${req.user.username}` });
+// });
+
+// module.exports = router;

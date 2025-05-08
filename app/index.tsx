@@ -1,5 +1,5 @@
-import { Text, View } from "react-native";
 import { useEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
 
@@ -24,8 +24,20 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: '#DCE4C9D1',
       }}>
       <Text>Into The Wild</Text>
     </View>
   );
-}
+};
+
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#DCE4C9D1',
+  },
+  text: {
+    fontSize: 20,
+    color: "#333",
+  },
+});

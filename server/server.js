@@ -69,7 +69,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Require routers
-const userRouter = require('./routes/user.router');
+// const userRouter = require('./routes/user.router');
 const foundRouter = require('./routes/found.router');
 const itemsRouter = require('./routes/items.router');
 const categoriesRouter = require('./routes/categories.router');
@@ -83,12 +83,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 // Use routers
-app.use('/api/user', userRouter); // ✅ now using JWT auth
+// app.use('/api/user', userRouter); // ✅ now using JWT auth
 app.use('/api/found', foundRouter);
 app.use('/api/items', itemsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/favorites', favoritesRouter);
 app.use('/api/admin', adminRouter);
+
+app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Hello from the backend!' });
+});
 
 // Start server
 app.listen(PORT, () => {
