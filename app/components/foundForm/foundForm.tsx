@@ -1,4 +1,4 @@
-import { Text, TextInput, ScrollView, StyleSheet } from "react-native";
+import { Text, TextInput, ScrollView, StyleSheet, Button } from "react-native";
 import React from "react";
 import { useState } from "react";
 // import { useParams } from "@react-navigation/native";
@@ -42,6 +42,7 @@ export default function FoundForm() {
                 value={foundDescription}
                 onChangeText={setFoundDescription}
                 ></TextInput>
+                <Button title="Submit" onPress={() => {}} />
           </ScrollView>
   );
 }
